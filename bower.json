@@ -1,0 +1,16 @@
+{
+  "name": "angular-node-seed",
+  "version": "0.0.1",
+  "homepage": "https://github.com/salvianoo/angular-node-seed",
+  "authors": [
+    "Salviano Ludgerio <salviano.lfg@gmail.com>"
+  ],
+  "description": "Seed para uma aplicação com Express e Angular.",
+  "main": "server.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "*",
+    "angular": "*"
+  }
+}
