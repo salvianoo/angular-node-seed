@@ -13,12 +13,13 @@ app.controller('AvengersCtrl', function($scope, $http) {
 
   $http.get('/avengers').success(function(retorno) {
     $scope.avengers = retorno.avengers;
-  })
+  });
 
   $scope.adicionaAvenger = function() {
     $http.post('/avenger', $scope.avenger).success(function() {
       $scope.avengers.push($scope.avenger);
       $scope.avenger = new Avenger();
     });
-  }
-})
+  };
+
+});
