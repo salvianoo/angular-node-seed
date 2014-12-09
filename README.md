@@ -1,7 +1,16 @@
-Clonar o repositório
+Angular-Node-Seed
+=================
 
-sudo npm install
+Seed para uma aplicação com Express e Angular
 
-bower install
+## Instalar as dependências
 
-npm start
+      $ sudo npm install
+
+## Instalar as dependências de front
+
+      $ bower install
+
+## Rodar o projet
+
+      $ npm start
