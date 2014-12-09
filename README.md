@@ -11,6 +11,6 @@ Seed para uma aplicação com Express e Angular
 
       $ bower install
 
-## Rodar o projet
+## Rodar o projeto
 
       $ npm start
