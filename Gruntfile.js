@@ -4,18 +4,16 @@ module.exports = function(grunt){
     jshint: {
       app: {
         src: ["server.js"]
+      },
+      browser: {
+        options: {
+          jshintrc: ".jshintrc-browser"
+        },
+        files: {
+          src: ["public/javascripts/**/*.js"]
+        }
       }
-    //  browser: {
-    //    options: {
-    //      jshintrc: ".jshintrc-browser"
-    //    },
-    //    files: {
-    //      src: ["code/public/app/**/*.js"]
-    //    }
-    //  }
-    //},
     },
-
     watch: {
       options: {
         spawn: false,
@@ -24,30 +22,30 @@ module.exports = function(grunt){
         files: ["server.js"],
         tasks: ["jshint:app"]
       },
-    //  browser: {
-    //    files: "code/public/app/**/*.js",
-    //    //tasks: ["jshint:browser"],
-    //    options: {
-    //      livereload: true
-    //    }
-    //  },
-    //  css: {
-    //    files: "code/public/stylesheets/*.css",
-    //    options: {
-    //      livereload: true
-    //    }
-    //  },
+      browser: {
+        files: "public/javascripts/**/*.js",
+        tasks: ["jshint:browser"],
+        options: {
+          livereload: true
+        }
+      },
+      css: {
+        files: "public/stylesheets/**/*.css",
+        options: {
+         livereload: true
+        }
+      },
       views: {
         files: "views/**/*.ejs",
         options: {
           livereload: true
         }
-      },
+      }
     //  specs: {
     //    files: "code/specs/**/*.js",
     //    tasks: ["jasmine_node"]
     //  }
-    }
+    },
 
     //jasmine_node: {
     //  options: {
@@ -62,11 +60,28 @@ module.exports = function(grunt){
     //  },
     //  all: ['code/specs/']
     //}
+
+    nodemon: {
+      dev: {
+        script: 'server.js'
+      }
+    },
+
+    concurrent: {
+      dev: {
+        tasks: ['nodemon', 'watch'],
+        options: {
+          logConcurrentOutput: true
+        }
+      }
+    }
   });
 
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-nodemon");
+  grunt.loadNpmTasks("grunt-concurrent");
   //grunt.loadNpmTasks("grunt-jasmine-node");
 
-  grunt.registerTask("default", ["watch"]);
+  grunt.registerTask("default", ["concurrent", "watch"]);
 };
