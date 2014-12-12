@@ -1,5 +1,6 @@
-var app = angular.module('myApp', []);
+'use strict';
 
+var app = angular.module('myApp', []);
 app.controller('AvengersCtrl', function($scope, $http) {
 
   function Avenger() {
@@ -21,5 +22,4 @@ app.controller('AvengersCtrl', function($scope, $http) {
       $scope.avenger = new Avenger();
     });
   };
-
 });
