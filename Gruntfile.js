@@ -66,7 +66,6 @@ module.exports = function(grunt){
         script: 'server.js'
       }
     },
-
     concurrent: {
       dev: {
         tasks: ['nodemon', 'watch'],
