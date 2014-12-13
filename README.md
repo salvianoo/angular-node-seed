@@ -13,4 +13,4 @@ Seed para uma aplicação com Express e Angular
 
 ## Rodar o projeto
 
-      $ npm start
+      $ grunt
