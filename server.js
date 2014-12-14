@@ -1,10 +1,10 @@
 /**
  * Module dependencies
  */
-var express = require('express'),
-  bodyParser = require('body-parser'),
-  swig = require('swig'),
-  routes = require('./routes/index');
+var express = require('express')
+  , bodyParser = require('body-parser')
+  , swig = require('swig')
+  , routes = require('./routes/index');
 // var errorHandler = require('errorhandler');
 
 var app = express();

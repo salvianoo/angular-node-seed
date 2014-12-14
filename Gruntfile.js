@@ -3,6 +3,9 @@ module.exports = function(grunt){
   grunt.initConfig({
     jshint: {
       app: {
+        options: {
+          jshintrc: ".jshintrc"
+        },
         src: ["server.js", "routes/**/*.js"]
       },
       browser: {
