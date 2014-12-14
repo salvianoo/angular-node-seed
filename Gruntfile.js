@@ -3,7 +3,7 @@ module.exports = function(grunt){
   grunt.initConfig({
     jshint: {
       app: {
-        src: ["server.js"]
+        src: ["server.js", "routes/**/*.js"]
       },
       browser: {
         options: {
@@ -19,7 +19,7 @@ module.exports = function(grunt){
         spawn: false,
       },
       app: {
-        files: ["server.js"],
+        files: ["server.js", "routes/**/*.js"],
         tasks: ["jshint:app"]
       },
       browser: {
@@ -36,7 +36,7 @@ module.exports = function(grunt){
         }
       },
       views: {
-        files: "views/**/*.ejs",
+        files: "views/**/*.html",
         options: {
           livereload: true
         }
