@@ -4,7 +4,7 @@
 var express = require('express'),
   bodyParser = require('body-parser'),
   swig = require('swig'),
-  routes = require('./routes');
+  routes = require('./routes/index');
 // var errorHandler = require('errorhandler');
 
 var app = express();
@@ -44,7 +44,8 @@ if (env === 'production') {
 /**
  * Routes
  */
-app.get('/', routes.index);
+app.use('/', routes);
+app.use('/vehicles', routes);
 
 app.listen(3000, function() {
   console.log('Express serving listening on port 3000');
