@@ -19,7 +19,7 @@ module.exports = function(grunt){
     },
     watch: {
       options: {
-        spawn: false,
+        spawn: false, // grok this
       },
       app: {
         files: ["server.js", "routes/**/*.js"],
@@ -73,7 +73,7 @@ module.exports = function(grunt){
       dev: {
         tasks: ['nodemon', 'watch'],
         options: {
-          logConcurrentOutput: true
+          logConcurrentOutput: true // grok this
         }
       }
     }
