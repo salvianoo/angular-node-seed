@@ -1,35 +1,50 @@
+/**
+ * Module dependencies
+ */
 var express = require('express'),
-    bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  swig = require('swig'),
+  routes = require('./routes');
+// var errorHandler = require('errorhandler');
+
 var app = express();
 
-var vingadores = [
-  {nome: 'HULK', tel: 34324332},
-  {nome: 'THOR', tel: 12345679},
-  {nome: 'IRON MAN', tel: 987654321}
-];
+/**
+ * Configuration
+ */
 
+// all environments
 app.set('port', process.env.PORT || 3000);
+app.engine('html', swig.renderFile);
+// view engine setup
+app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
-app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
+var env = process.env.NODE_ENV || 'development';
 
-app.get('/', function(req, res) {
-  res.render('layout');
-});
+// development only
+if (env === 'development') {
+  // app.use(errorHandler());
 
-app.get('/avengers', function(req, res) {
-  res.json({ avengers: vingadores });
-});
+  // use Express's caching instead
+  app.set('view cache', false);
+  // To disable Swig's cache, do the following:
+  swig.setDefaults({ cache: false });
+  // NOTE: You should always cache templates in a production environment.
+  // Don't leave both of these to `false` in production!
+}
+// production only
+if (env === 'production') {
+  // TODO
+}
 
-app.post('/avenger', function(req, res) {
-  vingadores.push(req.body);
-
-  res.sendStatus(201);
-});
+/**
+ * Routes
+ */
+app.get('/', routes.index);
 
 app.listen(3000, function() {
   console.log('Express serving listening on port 3000');
