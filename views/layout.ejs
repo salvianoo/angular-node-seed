@@ -21,7 +21,8 @@
 
     <!-- block content -->
 
-    <section ng-controller='AvengersCtrl' class='row'>
+    <div ng-controller='AvengersCtrl'>
+    <section class='row'>
       <form ng-submit='adicionaAvenger()' class='col-lg-4'>
         <label for="">Nome do Avenger</label>
         <input type='text' ng-model='avenger.nome' class='form-control'>
@@ -33,17 +34,22 @@
     </section>
 
     <h2>Avengers</h2>
-
-    <table ng-controller="AvengersCtrl" class="table table-striped">
+    <!-- <div ng-controller='AvengersCtrl'> -->
+    <table class="table table-striped">
       <tr>
+        <th>Carga</th>
+        <th>Telefone</th>
         <th>Nome</th>
         <th>Telefone</th>
       </tr>
       <tr ng-repeat='avenger in avengers'>
+        <td>{{avenger.carga}}</td>
+        <td>{{avenger.tel}}</td>
         <td>{{avenger.nome}}</td>
         <td>{{avenger.tel}}</td>
       </tr>
     </table>
+    </div>
 
   </main>
   <script src="assets/jquery/dist/jquery.js"></script>

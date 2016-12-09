@@ -11,6 +11,6 @@
   "private": true,
   "dependencies": {
     "bootstrap": "*",
-    "angular": "*"
+    "angular": "1.5.x"
   }
 }
