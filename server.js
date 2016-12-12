@@ -2,12 +2,6 @@ var express = require('express'),
     bodyParser = require('body-parser');
 var app = express();
 
-var vingadores = [
-  {nome: 'HULK', tel: 34324332},
-  {nome: 'THOR', tel: 12345679},
-  {nome: 'IRON MAN', tel: 987654321}
-];
-
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');

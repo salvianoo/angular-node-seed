@@ -21,32 +21,36 @@
 
     <!-- block content -->
 
-    <div ng-controller='AvengersCtrl'>
+    <div ng-controller='FretesCtrl'>
     <section class='row'>
-      <form ng-submit='adicionaAvenger()' class='col-lg-4'>
-        <label for="">Nome do Avenger</label>
-        <input type='text' ng-model='avenger.nome' class='form-control'>
-        <label for="">Telefone</label>
-        <input type='tel' ng-model='avenger.tel' class='form-control'>
+      <form ng-submit='createFrete()' class='col-lg-4'>
+        <label for="">Tipo de carga</label>
+        <input type='text' ng-model='frete.carga' class='form-control'>
+        <label for="">Cidade Origem</label>
+        <input type='tel' ng-model='frete.cidade_origem' class='form-control'>
+        <label for="">Cidade Destino</label>
+        <input type='tel' ng-model='frete.cidade_destino' class='form-control'>
+        <label for="">Tipo de Carroceria</label>
+        <input type='tel' ng-model='frete.carrocerias' class='form-control'>
         <hr>
         <input type='submit' value='salvar' class='btn btn-primary'>
       </form>
     </section>
 
-    <h2>Avengers</h2>
+    <h2>Fretes</h2>
     <!-- <div ng-controller='AvengersCtrl'> -->
     <table class="table table-striped">
       <tr>
         <th>Carga</th>
-        <th>Telefone</th>
-        <th>Nome</th>
-        <th>Telefone</th>
+        <th>Origem</th>
+        <th>Destino</th>
+        <th>Carrocerias</th>
       </tr>
-      <tr ng-repeat='avenger in avengers'>
-        <td>{{avenger.carga}}</td>
-        <td>{{avenger.tel}}</td>
-        <td>{{avenger.nome}}</td>
-        <td>{{avenger.tel}}</td>
+      <tr ng-repeat='frete in fretes'>
+        <td>{{frete.carga|lowercase}}</td>
+        <td>{{frete.cidade_origem}}</td>
+        <td>{{frete.cidade_destino}}</td>
+        <td>{{frete.carrocerias}}</td>
       </tr>
     </table>
     </div>
@@ -55,6 +59,6 @@
   <script src="assets/jquery/dist/jquery.js"></script>
   <script src="assets/bootstrap/dist/js/bootstrap.js"></script>
   <script src="assets/angular/angular.min.js"></script>
-  <script src="javascripts/AvengersController.js"></script>
+  <script src="javascripts/FretesController.js"></script>
 </body>
 </html>
